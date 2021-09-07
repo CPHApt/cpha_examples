@@ -2,6 +2,13 @@
 
 discord:
 ```
+kind: pipeline
+name: "examplo para enviar msg no discord"
+
+clone:
+  disable: true
+
+steps:
 - name: discord
   pull: always
   image: appleboy/drone-discord
@@ -13,16 +20,16 @@ discord:
   settings:
     message: >
       {{#success build.status}}
-      ✅ Build #{{build.number}} of `{{repo.name}}` succeeded.
+      ✅ Build #{{build.number}} de `{{repo.name}}` teve sucesso.
        
-      📝 Commit by {{commit.author}} on `{{commit.branch}}`:
+      📝 Submetida por {{commit.author}} em `{{commit.branch}}`:
       ```
       {{commit.message}}
       ```
       🌐 <{{ build.link }}>
       {{else}}
-      ❌ Build #{{build.number}} of `{{repo.name}}` failed.
-      📝 Commit by {{commit.author}} on `{{commit.branch}}`:
+      ❌ Build #{{build.number}} de `{{repo.name}}` falhou.
+      📝 Submetida por {{commit.author}} em `{{commit.branch}}`:
       ```
       {{commit.message}}
       ```
