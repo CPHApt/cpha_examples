@@ -15,3 +15,7 @@ E preciso ter docker instalado e uns segundos depois de correr vai criar um fich
 ```
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/CPHApt/cpha_examples/main/fake_ha_secrets.sh)"
 ```
+
+## LICENÇA
+
+Para mais informações, por favor consulte a [LICENÇA](LICENSE)
