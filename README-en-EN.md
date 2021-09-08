@@ -1,4 +1,4 @@
-[Português](./README-pt-PT.md)
+[Português](./README.md)
 
 [<img src="https://avatars.githubusercontent.com/u/88738079?s=400&u=ca61a124c283d03a55afefbb7b9b98dfbd6e135e&v=4" alt="Logo of the project" align="right" width="8%" height="8%">](https://www.sthope.dev/)
 
