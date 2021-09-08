@@ -2,8 +2,11 @@
 [<img src="https://avatars.githubusercontent.com/u/88738079?s=400&u=ca61a124c283d03a55afefbb7b9b98dfbd6e135e&v=4" alt="Logo of the project" align="right" width="8%" height="8%">](https://www.sthope.dev/)
 
 # CPHA Exemplos . [![Discord](https://img.shields.io/discord/494714310518505472?style=plastic)](https://discord.gg/Mh9mTEA) [![License](https://img.shields.io/github/license/CPHApt/cpha_examples?style=plastic)](https://github.com/CPHApt/cpha_examples/blob/main/LICENSE) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/CPHApt/cpha_examples?style=plastic)
-> 🔥Comunidade Portuguesa de Home Assistant🔥
+> 🔥Comunidade Portuguesa de Home Assistant🔥  
 
+[![GitHub watchers](https://img.shields.io/github/watchers/CPHApt/cpha_examples.svg?style=social&label=Watch)](https://GitHub.com/CPHApt/cpha_examples/watchers/) 
+[![GitHub forks](https://img.shields.io/github/forks/CPHApt/cpha_examples.svg?style=social&label=Fork)](https://GitHub.com/CPHApt/cpha_examples/network/)
+[![GitHub stars](https://img.shields.io/github/stars/CPHApt/cpha_examples.svg?style=social&label=Star)](https://GitHub.com/CPHApt/cpha_examples/stargazers/)
 
 ### Criar secrets.yaml falso
 
