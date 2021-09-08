@@ -15,3 +15,7 @@ It needs Docker to be installed, few seconds after running the command it will c
 ```
 bash -c "$(wget -qLO - https://raw.githubusercontent.com/CPHApt/cpha_examples/main/fake_ha_secrets.sh)"
 ```
+
+## LICENSE
+
+For more information, please refer to the [LICENSE](LICENSE) file.
