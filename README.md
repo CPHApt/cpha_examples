@@ -1,4 +1,4 @@
-# CPHA Exemplos
+# CPHA Exemplos . ![Discord](https://img.shields.io/discord/494714310518505472?style=plastic) ![GitHub](https://img.shields.io/github/license/CPHApt/cpha_examples?style=plastic) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/CPHApt/cpha_examples?style=plastic)
 
 
 ### Criar secrets.yaml falso
