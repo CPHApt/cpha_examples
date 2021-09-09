@@ -1,0 +1,43 @@
+---
+kind: pipeline
+name: Config Check Dev
+trigger:
+  branch:
+    - master
+    - feature/*
+steps:
+  - name: "check:stable"
+    image: ghcr.io/home-assistant/home-assistant:stable
+    pull: always
+    commands:
+      - cd /drone/src/HA
+      - "python -m homeassistant -c /drone/src/HA --script check_config"
+  - name: "check:dev"
+    image: ghcr.io/home-assistant/home-assistant:dev
+    pull: always
+    failure: ignore
+    commands:
+      - cd /drone/src/HA
+      - "python -m homeassistant -c /drone/src/HA --script check_config"
+  - name: "check:rc"
+    image: ghcr.io/home-assistant/home-assistant:rc
+    pull: always
+    commands:
+      - cd /drone/src/HA
+      - "python -m homeassistant -c /drone/src/HA --script check_config"
+- name: deploying
+  image: appleboy/drone-ssh
+  settings:
+    host: 
+      from_secret: host
+    username:
+      from_secret: username
+    key:
+      from_secret: key
+    port: 
+      from_secret: port
+    script:
+      - bash /scripts/ssh_haconfig_upgrade
+  when:
+    status:
+    - success
