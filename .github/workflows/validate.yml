@@ -1,0 +1,64 @@
+name: Validate
+
+on: pull_request
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      # dog-food testing. Should not release here at all, cause it runs on a PR.
+      - name: semantic-release
+        id: semantic-test
+        uses: ./
+        with:
+          dry_run: true
+          branches: |
+            [
+              '+([0-9])?(.{+([0-9]),x}).x',
+              'master',
+              'next',
+              'next-major',
+              {
+                name: 'beta',
+                prerelease: true
+              },
+              {
+                name: 'alpha',
+                prerelease: true
+              }
+            ]
+          repository_url: https://github.com/codfish/semantic-release-action.git
+          tag_format: 'v${version}'
+          plugins: |
+            ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/npm', '@semantic-release/github']
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # dog-food testing. Should not release here at all, cause it runs on a PR.
+      - name: semantic-release with no inputs
+        id: semantic
+        uses: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: test output
+        if: steps.semantic.outputs.new-release-published == 'false'
+        run: |
+          echo "$OUTPUTS"
+          echo "should be false: $NEW_RELEASE_PUBLISHED"
+          echo "should be empty: $RELEASE_MAJOR"
+          echo "should be empty: $RELEASE_MINOR"
+          echo "should be empty: $RELEASE_PATCH"
+        env:
+          OUTPUTS: ${{ toJson(steps.semantic.outputs) }}
